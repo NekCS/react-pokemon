@@ -1,25 +1,57 @@
 const Pokedex = require('pokedex-promise-v2');
 const fs = require('fs');
 const path = require('path');
-const request = require('request');
+const formatedPokemon = require('./pokemon.json');
+const pokemonArray = [];
+
+
 const pokedex = new Pokedex();
 
-const formatedPokemon = [];
 const promisesArray = [];
 
 
-for (let i = 1; i < 5; i++) {
-	//promisesArray.push(pokedex.getPokemonByName(i));
+for (pokemon in formatedPokemon) {
+	pokemonArray.push(formatedPokemon[pokemon]);
 }
 
+console.log(pokemonArray.sort((prev, next) => {
 
+	return Number(prev.id) - Number(next.id);
+}));
 
+pokemonArray.forEach(pokemon => {
+	console.log(pokemon.id);
+})
 
-Promise
-	.all(promisesArray)
-	.then(responses => {
-		parsePokemon(responses);
+const json = JSON.stringify(pokemonArray)
+fs.writeFile(path.join(__dirname, 'pokemonArr.json'), json, 'utf8', endProcess);
+/*
+pokedex.getGenerationByName("generation-i")
+	.then(function (response) {
+		const pokemons = response.pokemon_species;
+		for (let i = 0; i < pokemons.length; i++) {
+			const name = pokemons[i].name;
+			if (!formatedPokemon[name]) {
+				console.log(name);
+				promisesArray.push(pokedex.getPokemonByName(name));
+			}
+		}
+
+		Promise
+			.all(promisesArray)
+			.then(responses => {
+				parsePokemon(responses);
+			})
+			.catch(error => {
+				console.log(error);
+			})
 	})
+	.catch(function (error) {
+		console.log('There was an ERROR: ', error);
+	});
+
+
+
 
 async function parsePokemon(responses) {
 
@@ -56,14 +88,16 @@ async function parsePokemon(responses) {
 		pokemonObj.habitat = speciesInfo.habitat.name;
 
 
-		formatedPokemon.push(pokemonObj);
+		formatedPokemon[pokemon.name] = pokemonObj;
 	}
 
 	const tmpJson = JSON.stringify(formatedPokemon);
+	console.log(tmpJson);
+	console.log(formatedPokemon);
 	fs.writeFile(path.join(__dirname, 'pokemon.json'), tmpJson, 'utf8', endProcess);
 }
-
+*/
 function endProcess() {
 	console.log('Done');
 	process.exit();
-}
+} 

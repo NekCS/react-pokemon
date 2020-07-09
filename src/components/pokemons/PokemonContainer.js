@@ -1,7 +1,7 @@
 import React from 'react';
 import Pokemon from './pokemon/Pokemon';
 import Styles from './PokemonContainer.module.scss';
-import pokemonJson from '../../utilities/pokemon.json';
+import pokemonJson from '../../utilities/pokemonArr.json';
 import axios from 'axios';
 
 class PokemonContainer extends React.Component {
@@ -21,7 +21,7 @@ class PokemonContainer extends React.Component {
 			pokemonComponents = null;
 		} else {
 			pokemonComponents = this.state.pokemonCollection.map(pokemon => {
-				return <Pokemon pokemon={pokemon} />;
+				return <Pokemon key={pokemon.id} pokemon={pokemon} />;
 			})
 		}
 
