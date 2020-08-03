@@ -1,15 +1,13 @@
 import React from 'react';
 import Pokemon from './pokemon/Pokemon';
 import Styles from './PokemonContainer.module.scss';
-import pokemonJson from '../../utilities/pokemonArr.json';
-import axios from 'axios';
 
 class PokemonContainer extends React.Component {
 
-	constructor(pros) {
+	constructor(props) {
 		super();
 		this.state = {
-			pokemonCollection: pokemonJson
+			pokemonCollection: props.pokemons
 		}
 	}
 

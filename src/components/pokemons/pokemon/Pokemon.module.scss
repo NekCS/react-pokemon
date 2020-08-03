@@ -1,7 +1,69 @@
 .PokemonCard {
 	text-align: left;
+	width: 100%;
+	background: #fff;
+	margin: 8px;
+	border-radius: 14px;
+	text-decoration: none;
 
-	img {
-		width: 50px;
+	@media screen and (min-width: 400px) {
+		width: 45%;
+	}
+
+	@media screen and (min-width: 550px) {
+		width: 30%;
+		margin: 6px;
+	}
+
+	@media screen and (min-width: 600px) {
+		margin: 6px;
+	}
+
+	@media screen and (min-width: 910px) {
+		width: 20%;
+		margin: 8px;
+	}
+
+	.PokemonImage {
+		height: 140px;
+		background-size: auto 120px;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+
+	.PokemonName {
+		text-align: center;
+		font-size: 1.6rem;
+		padding: 8px;
+		text-transform: capitalize;
+		color: #3d3d3d;
+		letter-spacing: 1px;
+		//border-top: 1px solid #000;
+		//@at-root: 1px solid #000;
+		background: #dedede;
+	}
+
+	.PokemonFooter {
+		text-align: center;
+		font-size: 1.6rem;
+		padding: 8px 8px;
+		text-transform: capitalize;
+		color: #3d3d3d;
+		letter-spacing: 1px;
+
+		.PokemonButton {
+			display: inline-block;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+
+			svg {
+				width: 40px;
+			}
+
+			&:hover {
+				svg {
+					fill: #ff3434;
+				}
+			}
+		}
 	}
 }

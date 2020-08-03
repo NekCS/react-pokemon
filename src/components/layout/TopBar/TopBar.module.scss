@@ -2,10 +2,27 @@
 	height: 56px;
 	background: #ff3434;
 	text-align: center;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
 }
 
 .pokemonLogo {
 	padding: 2px;
 	box-sizing: border-box;
 	height: 100%;
+}
+
+.BackButton {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 60px;
+	height: 100%;
+
+	img {
+		height: 60%;
+		margin-top: 11px;
+	}
 }

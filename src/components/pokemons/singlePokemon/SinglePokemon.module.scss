@@ -1,0 +1,24 @@
+.SinglePokemon {
+	margin: 16px auto 16px auto;
+	max-width: 400px;
+	height: 200px;
+	background: #fff;
+	border-radius: 10px;
+
+	.PokemonImage {
+		height: 140px;
+		background-size: auto 120px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		border-bottom: 1px solid #000;
+	}
+
+	.PokemonName {
+		text-align: center;
+		font-size: 1.6rem;
+		padding: 4px 0;
+		text-transform: capitalize;
+		color: #3d3d3d;
+		letter-spacing: 1px;
+	}
+}

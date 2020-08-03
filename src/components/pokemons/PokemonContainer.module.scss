@@ -1,4 +1,7 @@
 .PokemonContainer {
-	height: 500px;
+	//@extend: 500px;
 	//background: grey;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
